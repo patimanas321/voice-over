@@ -1,0 +1,42 @@
+{
+  "name": "voice-over-service",
+  "version": "1.0.0",
+  "description": "Apis for voice-over chat app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patimanas321/voice-over.git"
+  },
+  "keywords": [
+    "chat",
+    "call",
+    "videocall",
+    "audiocall",
+    "video",
+    "call",
+    "audio",
+    "call",
+    "node",
+    "nodejs",
+    "socketio",
+    "socket-io",
+    "socket.io",
+    "webrtc",
+    "web-rtc"
+  ],
+  "author": "patimanas321@yahoo.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patimanas321/voice-over/issues"
+  },
+  "homepage": "https://github.com/patimanas321/voice-over#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
+    "socket-io": "^1.0.0"
+  }
+}
