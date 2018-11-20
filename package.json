@@ -38,6 +38,7 @@
     "express": "^4.16.4",
     "jsonwebtoken": "^8.4.0",
     "mongodb": "^3.1.9",
+    "password-hash": "^1.2.2",
     "socket-io": "^1.0.0"
   }
 }
