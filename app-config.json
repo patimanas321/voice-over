@@ -1,5 +1,4 @@
 {
-    "port": 443,
     "mongo-db-url": "mongodb+srv://adminuser:mustang123@voiceoverdefaultcluster-elgpu.mongodb.net/admin",
     "mpngoGeneralUserName": "generaluser",
     "mongoGeneralUserPassword": "mustang123",

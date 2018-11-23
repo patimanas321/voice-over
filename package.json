@@ -4,7 +4,8 @@
   "description": "Apis for voice-over chat app",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "postinstall": "heroku stop DYNO -a voice-over-api"
   },
   "engines": {
     "node": "8.13.0",

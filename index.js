@@ -17,5 +17,5 @@ app.get('/', (req, res) => {
     res.send('working!!');
 });
 
-const port = configHelper.getConfigValue('port');
-app.listen(port, () => console.log(`App listening on port ${port}!`));
+// Start the app by listening on the default Heroku port
+app.listen(process.env.PORT || 443);
