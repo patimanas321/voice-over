@@ -12,5 +12,10 @@ app.use(cors({
 
 app.use('/user', userRoute);
 
+// TESTING - TO BE REMOVED
+app.get('/', (req, res) => {
+    res.send('working!!');
+});
+
 const port = configHelper.getConfigValue('port');
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(443, () => console.log(`Example app listening on port ${port}!`));
