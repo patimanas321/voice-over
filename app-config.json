@@ -1,5 +1,10 @@
 {
-    "port": 3000,
-    "mongo-db-url": "mongodb://localhost:27017",
-    "token-encryption-key": "a68shasdjat376389923"
+    "port": 443,
+    "mongo-db-url": "mongodb+srv://adminuser:mustang123@voiceoverdefaultcluster-elgpu.mongodb.net/admin",
+    "mpngoGeneralUserName": "generaluser",
+    "mongoGeneralUserPassword": "mustang123",
+    "mpngoAdminUserName": "adminuser",
+    "mongoAdminUserPassword": "mustang123",
+    "token-encryption-key": "a68shasdjat376389923",
+    "allowedOrigins": "*"
 }
