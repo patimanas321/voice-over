@@ -12,10 +12,8 @@ app.use(cors({
 
 app.use('/user', userRoute);
 
-// TESTING - TO BE REMOVED
-app.get('/', (req, res) => {
-    res.send('working!!');
-});
-
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 443);
+
+//Development
+//app.listen(3000, () => {console.log('Listening at Port:3000')});
