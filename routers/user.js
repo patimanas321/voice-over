@@ -1,19 +1,25 @@
 const express = require('express');
+const auth = require('../middleware/auth');
 const router = express.Router();
-
-const RegisterRequest = require('../models/register-request');
-const LoginRequest = require('../models/login-request');
-
+const User = require('../models/user');
 const userRepository = require('../repos/user-repository');
 
-router.use((req, res, next) => {
-    //Route specific validations 
-    next();
+// Validate all requests
+router.use(auth);
+
+// Get user profile
+router.get('/profile', (req, res) => {
+    userRepository.getUserProfile(req.user).then((user) => {
+        res.status(200).send(user);
+    }).catch((err) => {
+        res.status(500).send(err);
+    });
 });
 
+// Register new User
 router.use('/register', (req, res, next) => {
     //validate model
-    var regReq = new RegisterRequest(req.body);
+    var regReq = new User(req.body);
 
     if (!regReq.validate()) {
         res.status(400).send();
@@ -29,58 +35,4 @@ router.use('/register', (req, res, next) => {
     });
 });
 
-router.use('/login', (req, res, next) => {
-    //validate model
-    var logingReq = new LoginRequest(req.body);
-
-    if (!logingReq.validate()) {
-        res.status(400).send();
-    } else {
-        req.body = logingReq;
-    }
-    next();
-}).post('/login', (req, res) => {
-    userRepository.login(req.body).then((data) => {
-        res.status(200).send(data);
-    }).catch((err) => {
-        res.status(500).send(err);
-    });
-});
-
-/*
-router.use('/token/validate', (req, res, next) => {
-    //validate model
-    if (!req.get('Authorization')) {
-        res.status(400).send();
-    }
-    next();
-}).post('/token/validate', (req, res) => {
-    userRepository.validateToken(req.get('Authorization')).then(data => {
-        res.status(200).send(data);
-    }).catch(err => {
-        res.status(500).send(err);
-    });
-});
-*/
-
-router.use('/token/refresh', (req, res, next) => {
-    //validate model
-    next();
-}).post('/token/refresh', (req, res) => {
-    console.log(req.body);
-    res.send('Refresh Token Works!');
-});
-
-router.get('/details', (req, res) => {
-    res.send('Get User details Works!');
-});
-
-router.use('/details', (req, res, next) => {
-    //validate model
-    next();
-}).post('/details', (req, res) => {
-    console.log(req.body);
-    res.send('Update user details Works!');
-});
-
-module.exports = router
+module.exports = router;
